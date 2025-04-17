@@ -9,21 +9,17 @@ use Sofronz\Elysia\Filters\Filter as ServiceFilter;
  * Class Filter
  *
  * Facade for accessing model-based filters registered in the Laravel container.
- * Allows calling Filter::model('user') to resolve the filter instance bound to 'user' model.
+ * Allows calling Filter::model('user') to resolve the filter instance bound to the 'user' model.
  *
- * @method static Filter model(string $key)
- *
- * @package Sofronz\Elysia\Facades
+ * @method static ServiceFilter model(string $key)
  *
  * Author: Sofronius Ruddy (GitHub: @sofronz)
- * Copyright (c) 2025 Sofronz/elysia. All rights reserved.
+ * Copyright (c) 2025 Sofronz/Elysia. All rights reserved.
  */
 class Filter extends Facade
 {
     /**
-     * Get the registered name of the base component.
-     *
-     * This won't be used because we're overriding `model()` manually.
+     * Get the registered name of the component.
      *
      * @return string
      */
@@ -35,7 +31,7 @@ class Filter extends Facade
     /**
      * Retrieve a filter instance for a specific model key.
      *
-     * @param string $key The key defined in config/elysia.php
+     * @param string $key
      * @return ServiceFilter
      */
     public static function model(string $key): ServiceFilter
@@ -43,7 +39,7 @@ class Filter extends Facade
         if (!app()->bound("elysia.$key")) {
             throw new \InvalidArgumentException("Filter for model key [$key] is not registered.");
         }
-        
+
         return app("elysia.$key");
     }
 }

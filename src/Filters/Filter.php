@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Class Filter
+ *
+ * Core class for handling query string filtering in Eloquent models.
+ *
+ * Author: Sofronius Ruddy
+ * Copyright (c) 2025 Sofronz/Elysia. All rights reserved.
+ */
 namespace Sofronz\Elysia\Filters;
 
 use Illuminate\Http\Request;
