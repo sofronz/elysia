@@ -68,7 +68,7 @@ class Filter
         // Loop through each filter from the request
         foreach ($this->filters as $key => $value) {
             $filteredField = array_search($key, $filterConfig);
-            $field = $filteredField !== false ? $filteredField : $key;
+            $field         = $filteredField !== false ? $filteredField : $key;
             
             // Using match expression to determine filter type
             match (true) {
@@ -76,7 +76,7 @@ class Filter
                 $this->isLike($field)       => $this->applyLike($field, $value),
                 $this->isIn($field)         => $this->applyIn($field, $value),
                 $this->isBasicWhere($field) => $this->applyWhere($field, $value),
-                default => $this->applyWhere($field, $value),
+                default                     => $this->applyWhere($field, $value),
             };
         }
 
