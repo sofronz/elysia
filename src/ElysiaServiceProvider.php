@@ -33,7 +33,7 @@ class ElysiaServiceProvider extends ServiceProvider
         
         // Loop through each registered model and bind the corresponding filter
         foreach ($models as $key => $model) {
-            $this->app->singleton("filter.$key", function ($app) use ($model) {
+            $this->app->singleton("elysia.$key", function ($app) use ($model) {
                 // Create an instance of Filter for the corresponding model
                 return new Filter($app['request'], $model, $model);
             });
