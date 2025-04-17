@@ -27,37 +27,14 @@ trait SortFilter
      * @param string $value The value representing the field(s) to sort by, comma-separated.
      * @return void
      */
-    protected function applySort($value)
+    protected function applySort($field, $value)
     {
-        // Split the input value by comma to handle multiple sorting fields
-        $fields = explode(',', $value);
-
-        foreach ($fields as $field) {
-            // Get the sort direction based on the field (ascending or descending)
-            $direction = $this->getSortDirection($field);
-
-            // Remove any leading '-' to get the actual field name
-            $field = ltrim($field, '-');
-
-            // Apply the sorting to the query if the field is fillable
-            if ($this->isFillableField($field)) {
-                $this->query->orderBy($field, $direction);
-            }
+        // Remove any leading '-' to get the actual field name
+        $field = str_replace('_sort', '', $field);
+        
+        // Apply the sorting to the query if the field is fillable
+        if ($this->isFillableField($field)) {
+            $this->query->orderBy($field, $value);
         }
-    }
-
-    /**
-     * Determine the sort direction (ascending or descending) for a given field.
-     *
-     * This method checks whether the field starts with a '-' symbol.
-     * If it does, the sorting direction is descending; otherwise, it's ascending.
-     *
-     * @param string $field The field name to check for sorting direction.
-     * @return string The sorting direction ('asc' or 'desc').
-     */
-    protected function getSortDirection(string $field): string
-    {
-        // Return 'desc' if the field starts with '-', otherwise 'asc'
-        return str_starts_with($field, '-') ? 'desc' : 'asc';
     }
 }

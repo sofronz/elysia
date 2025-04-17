@@ -25,10 +25,10 @@ trait InFilter
      * @param string $value The value(s) for the filter, expected to be a comma-separated string.
      * @return void
      */
-    protected function applyIn($value)
+    protected function applyIn($field, $value)
     {
         // Remove the '_in' suffix from the filter key to get the actual field name
-        $field = str_replace('_in', '', $value);
+        $field = str_replace('_in', '', $field);
 
         // Check if the field is fillable in the model before applying the filter
         if ($this->isFillableField($field)) {

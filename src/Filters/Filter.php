@@ -67,14 +67,16 @@ class Filter
 
         // Loop through each filter from the request
         foreach ($this->filters as $key => $value) {
-            $field = $filterConfig[$key] ?? $key;
-
+            $filteredField = array_search($key, $filterConfig);
+            $field = $filteredField !== false ? $filteredField : $key;
+            
             // Using match expression to determine filter type
             match (true) {
-                $this->isSort($key)       => $this->applySort($value),
-                $this->isLike($key)       => $this->applyLike($value),
-                $this->isIn($key)         => $this->applyIn($value),
-                $this->isBasicWhere($key) => $this->applyWhere($field, $value),
+                $this->isSort($field)       => $this->applySort($field, $value),
+                $this->isLike($field)       => $this->applyLike($field, $value),
+                $this->isIn($field)         => $this->applyIn($field, $value),
+                $this->isBasicWhere($field) => $this->applyWhere($field, $value),
+                default => $this->applyWhere($field, $value),
             };
         }
 

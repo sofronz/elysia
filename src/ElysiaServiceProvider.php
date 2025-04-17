@@ -29,7 +29,7 @@ class ElysiaServiceProvider extends ServiceProvider
     public function register()
     {
         // Retrieve the list of models from the 'elysia.php' configuration file
-        $models = config('elysia.models');
+        $models = config('elysia.models', []);
         
         // Loop through each registered model and bind the corresponding filter
         foreach ($models as $key => $model) {
