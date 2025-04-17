@@ -1,0 +1,40 @@
+{
+    "name": "sofronz/elysia",
+    "description": "A powerful, customizable query string filter package for Laravel that lets you filter, sort, and search models using query parameters — without writing repetitive query logic.",
+    "keywords": ["laravel", "filter", "query", "eloquent"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sofronius Ruddy",
+            "email": "sofroniusrudib@gmail.com",
+            "homepage": "https://github.com/sofronz"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sofronz\\Elysia\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/database": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0|^12.0",
+        "illuminate/http": "^8.0|^9.0|^10.0|^11.0|^12.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "phpunit --configuration phpunit.xml"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sofronz\\Elysia\\ElysiaServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.75"
+    }
+}
