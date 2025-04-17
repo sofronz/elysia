@@ -14,11 +14,6 @@
     "autoload": {
         "psr-4": {
             "Sofronz\\Elysia\\": "src/"
-        },
-        "autoload-dev": {
-            "psr-4": {
-                "Sofronz\\Elysia\\Tests\\": "tests/"
-            }
         }
     },
     "require": {
