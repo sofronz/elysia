@@ -26,11 +26,11 @@ trait LikeFilter
      * @param string $value The value to search within the field, which will be wrapped in '%' for 'LIKE' condition.
      * @return void
      */
-    protected function applyLike($value)
+    protected function applyLike($field, $value)
     {
         // Remove the '_like' suffix from the filter key to get the actual field name
-        $field = str_replace('_like', '', $value);
-
+        $field = str_replace('_like', '', $field);
+        
         // Check if the field is fillable in the model before applying the filter
         if ($this->isFillableField($field)) {
             // Apply the 'LIKE' condition to the query
