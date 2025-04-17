@@ -2,8 +2,8 @@
 
 namespace Sofronz\Elysia\Filters;
 
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 use Sofronz\Elysia\Traits\FilterCheckerTrait;
 
 class Filter
@@ -43,8 +43,8 @@ class Filter
      */
     public function __construct(Request $request, string $modelClass)
     {
-        $this->request = $request;
-        $this->modelName = class_basename($modelClass); 
+        $this->request   = $request;
+        $this->modelName = class_basename($modelClass);
         $this->namespace = dirname($modelClass);
     }
 
@@ -56,13 +56,13 @@ class Filter
      */
     public function apply(Builder $query): Builder
     {
-        $this->query = $query;
+        $this->query   = $query;
         $this->filters = $this->request->query();
 
         // Get the model class dynamically
-        $modelClass = "{$this->namespace}\\{$this->modelName}";
-        $filterConfig = method_exists($modelClass, 'getQueryStringMapping') 
-                        ? $modelClass::getQueryStringMapping() 
+        $modelClass   = "{$this->namespace}\\{$this->modelName}";
+        $filterConfig = method_exists($modelClass, 'getQueryStringMapping')
+                        ? $modelClass::getQueryStringMapping()
                         : [];
 
         // Loop through each filter from the request
@@ -71,9 +71,9 @@ class Filter
 
             // Using match expression to determine filter type
             match (true) {
-                $this->isSort($key) => $this->applySort($value),
-                $this->isLike($key) => $this->applyLike($value),
-                $this->isIn($key) => $this->applyIn($value),
+                $this->isSort($key)       => $this->applySort($value),
+                $this->isLike($key)       => $this->applyLike($value),
+                $this->isIn($key)         => $this->applyIn($value),
                 $this->isBasicWhere($key) => $this->applyWhere($field, $value),
             };
         }

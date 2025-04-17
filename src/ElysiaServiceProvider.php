@@ -2,8 +2,8 @@
 
 namespace Sofronz\Elysia;
 
-use Illuminate\Support\ServiceProvider;
 use Sofronz\Elysia\Filters\Filter;
+use Illuminate\Support\ServiceProvider;
 
 /**
  * Class ElysiaServiceProvider
@@ -13,7 +13,7 @@ use Sofronz\Elysia\Filters\Filter;
  * allowing the use of filters specific to the registered models.
  *
  * @package Sofronz\Elysia
- * 
+ *
  * Author: Sofronius Ruddy (GitHub: @sofronz)
  * Copyright (c) 2025 Sofronz/elysia. All rights reserved.
  */
