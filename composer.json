@@ -1,0 +1,40 @@
+{
+    "name": "sofronz/elysia",
+    "description": "Dynamic query filtering package for Laravel.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sofronius Ruddy",
+            "email": "sofroniusrudib@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Sofronz\\Elysia\\": "src/"
+        },
+        "autoload-dev": {
+            "psr-4": {
+                "Sofronz\\Elysia\\Tests\\": "tests/"
+            }
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/database": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/http": "^8.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "test": "phpunit --configuration phpunit.xml"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sofronz\\Elysia\\ElysiaServiceProvider"
+            ]
+        }
+    }
+}
