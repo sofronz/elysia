@@ -122,6 +122,11 @@ By using the `getQueryStringMapping` method, you can easily customize and map qu
 
 Special thanks to [ChatGPT](https://openai.com/chatgpt) 🤖 for assisting with the design and development of this package.
 
+If you like my work or find it useful, you can support me through:
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-orange?logo=buy-me-a-coffee&style=for-the-badge)](https://ko-fi.com/sofronzz)  
+[![Saweria](https://img.shields.io/badge/Saweria-donate-orange?style=for-the-badge)](https://saweria.co/sofronz)
+
 ## 👨‍💻 Author
 
 **Sofronius Ruddy** (GitHub: [@sofronz](https://github.com/sofronz))  
